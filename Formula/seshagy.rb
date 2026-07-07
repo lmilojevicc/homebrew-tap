@@ -5,51 +5,47 @@
 class Seshagy < Formula
   desc "Agent-aware terminal dashboard for tmux and herdr"
   homepage "https://github.com/lmilojevicc/seshagy"
-  version "0.5.3"
+  version "0.6.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.5.3/seshagy_0.5.3_darwin_amd64.tar.gz"
-      sha256 "d8c279f22e971135f6b0e7f6e8a0c7eb473190f31415d51f39131332788df8f2"
+      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.6.0/seshagy_0.6.0_darwin_amd64.tar.gz"
+      sha256 "8787bec7da06205676bec58516a3941842a979e715a6df69bf68d79b4bb112fb"
 
       define_method(:install) do
         bin.install "seshagy"
-        bin.install "scripts/seshagy-focus-kill" => "seshagy-focus-kill"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.5.3/seshagy_0.5.3_darwin_arm64.tar.gz"
-      sha256 "850f9858a09a77a0b495a932caf3b785b97bb63aa55023eebe9bed1d3dd1c255"
+      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.6.0/seshagy_0.6.0_darwin_arm64.tar.gz"
+      sha256 "e20af36962d729f1ec03c4af06cfb66702ebd094064b6f6316e9d22b01501f3e"
 
       define_method(:install) do
         bin.install "seshagy"
-        bin.install "scripts/seshagy-focus-kill" => "seshagy-focus-kill"
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.5.3/seshagy_0.5.3_linux_amd64.tar.gz"
-      sha256 "9dd8dd69b5391b619b90d4dc1965d0acaabaf18aa44e3fd71fa9aef257f0acdd"
+      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.6.0/seshagy_0.6.0_linux_amd64.tar.gz"
+      sha256 "84602f2b19727a377484a31c05a0ca336414adb600f2a066c652d42230728c83"
       define_method(:install) do
         bin.install "seshagy"
-        bin.install "scripts/seshagy-focus-kill" => "seshagy-focus-kill"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.5.3/seshagy_0.5.3_linux_arm64.tar.gz"
-      sha256 "a391316f5094ed7c9231630505076ab8433e9128c570ec438bf58ed697c5943e"
+      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.6.0/seshagy_0.6.0_linux_arm64.tar.gz"
+      sha256 "45cd039fda2173cf0cd15a189172fbe1f1f04a8f13c77a3c286292e89f753542"
       define_method(:install) do
         bin.install "seshagy"
-        bin.install "scripts/seshagy-focus-kill" => "seshagy-focus-kill"
       end
     end
   end
 
   def caveats
     <<~EOS
-      The seshagy-focus-kill launcher is installed alongside the binary.
+      Built-in --ephemeral focus-loss dismissal replaces the former launcher.
       Wire a one-key launcher with: seshagy keybind install tmux (or: herdr)
       Requires tmux or herdr on PATH.
     EOS
