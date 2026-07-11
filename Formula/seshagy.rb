@@ -5,20 +5,20 @@
 class Seshagy < Formula
   desc "Agent-aware terminal dashboard for tmux and herdr"
   homepage "https://github.com/lmilojevicc/seshagy"
-  version "0.6.0"
+  version "0.7.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.6.0/seshagy_0.6.0_darwin_amd64.tar.gz"
-      sha256 "8787bec7da06205676bec58516a3941842a979e715a6df69bf68d79b4bb112fb"
+      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.7.0/seshagy_0.7.0_darwin_amd64.tar.gz"
+      sha256 "896f8175c82182f20262903d5082d5b15f2cf01f98724fa9f80a78a3401263a4"
 
       define_method(:install) do
         bin.install "seshagy"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.6.0/seshagy_0.6.0_darwin_arm64.tar.gz"
-      sha256 "e20af36962d729f1ec03c4af06cfb66702ebd094064b6f6316e9d22b01501f3e"
+      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.7.0/seshagy_0.7.0_darwin_arm64.tar.gz"
+      sha256 "49c1f1fc065219c3ae64ffc6210777134aadf735fbff31d725e85f6dcb804a3f"
 
       define_method(:install) do
         bin.install "seshagy"
@@ -28,15 +28,15 @@ class Seshagy < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.6.0/seshagy_0.6.0_linux_amd64.tar.gz"
-      sha256 "84602f2b19727a377484a31c05a0ca336414adb600f2a066c652d42230728c83"
+      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.7.0/seshagy_0.7.0_linux_amd64.tar.gz"
+      sha256 "66d24e56acb73292116a79f1ee659090936601ff021c38e95461ba3701f70f2e"
       define_method(:install) do
         bin.install "seshagy"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.6.0/seshagy_0.6.0_linux_arm64.tar.gz"
-      sha256 "45cd039fda2173cf0cd15a189172fbe1f1f04a8f13c77a3c286292e89f753542"
+      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.7.0/seshagy_0.7.0_linux_arm64.tar.gz"
+      sha256 "a0da20f5a1119edc9878508a27b33dc336eafb796fe6b0c9380deab3d0d4d645"
       define_method(:install) do
         bin.install "seshagy"
       end
