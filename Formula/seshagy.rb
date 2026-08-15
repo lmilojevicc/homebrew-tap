@@ -5,40 +5,44 @@
 class Seshagy < Formula
   desc "Agent-aware terminal dashboard for tmux and herdr"
   homepage "https://github.com/lmilojevicc/seshagy"
-  version "0.12.0"
+  version "0.13.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.12.0/seshagy_0.12.0_darwin_amd64.tar.gz"
-      sha256 "0b6a3046c208bcf1df1f2603ca8330ea41bdda144f688d1aa81963b9dde0a2c7"
+      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.13.0/seshagy_0.13.0_darwin_amd64.tar.gz"
+      sha256 "de67c169a41db6b3b1a4e9e90a4aafb5b5a444904f6968fdd98f5457ae9491d4"
 
       define_method(:install) do
         bin.install "seshagy"
+        generate_completions_from_executable bin/"seshagy", shell_parameter_format: :cobra, shells: [:bash, :zsh, :fish]
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.12.0/seshagy_0.12.0_darwin_arm64.tar.gz"
-      sha256 "319abaed672d1b79d06e7a01521f546f651aac10473ab7d997faeb75dc968b8d"
+      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.13.0/seshagy_0.13.0_darwin_arm64.tar.gz"
+      sha256 "3fb704f293837aa524bdcdac5a519ce3e0ae83dd67391fa2845cca3136bd86e3"
 
       define_method(:install) do
         bin.install "seshagy"
+        generate_completions_from_executable bin/"seshagy", shell_parameter_format: :cobra, shells: [:bash, :zsh, :fish]
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.12.0/seshagy_0.12.0_linux_amd64.tar.gz"
-      sha256 "81141b9c0b890a7facaa67cf7f05f199eb2c334e3270905770e3e4f2ca2b8ead"
+      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.13.0/seshagy_0.13.0_linux_amd64.tar.gz"
+      sha256 "fee7b22c731292e22037c321d6e3467e652de836b978a5a8f2b96ae51ae783f3"
       define_method(:install) do
         bin.install "seshagy"
+        generate_completions_from_executable bin/"seshagy", shell_parameter_format: :cobra, shells: [:bash, :zsh, :fish]
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.12.0/seshagy_0.12.0_linux_arm64.tar.gz"
-      sha256 "b019f2d455e85c8f5533eedc74d67fb7584344aa07905980150cd36f01886cff"
+      url "https://github.com/lmilojevicc/seshagy/releases/download/v0.13.0/seshagy_0.13.0_linux_arm64.tar.gz"
+      sha256 "704f64113745db28e4aed41be81d578b062a6629182c472db2a3ef01b45357d4"
       define_method(:install) do
         bin.install "seshagy"
+        generate_completions_from_executable bin/"seshagy", shell_parameter_format: :cobra, shells: [:bash, :zsh, :fish]
       end
     end
   end
