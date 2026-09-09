@@ -1,8 +1,8 @@
 class Readmd < Formula
   desc "Terminal Markdown reader with wide-table support"
   homepage "https://github.com/lmilojevicc/readmd"
-  url "https://github.com/lmilojevicc/readmd/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "6eb8b6189f4f409a5ff81659f6585423dda8858acf3208d91b3b967938858dad"
+  url "https://github.com/lmilojevicc/readmd/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "d48d26b3bb9b6f94b430ff89374d4e7b541fe4abae6717757f3974868159c1a8"
   license "GPL-3.0-only"
 
   depends_on "go" => :build
@@ -42,6 +42,7 @@ class Readmd < Formula
     system "go", "build", *std_go_args, "-mod=readonly", "-buildvcs=false", "."
 
     pkgshare.install "testdata/startup_pty.py", "THIRD_PARTY_NOTICES.md", "config.example.yaml", "theme.example.yaml"
+    pkgshare.install "testdata/file_picker_pty.py", "testdata/image_size_pty.py"
     (pkgshare/"docs").install "docs/configuration.md", "docs/usage.md"
 
     # Restrict collection to go.mod's pinned modules, including other platforms.
@@ -74,8 +75,13 @@ class Readmd < Formula
   test do
     assert_path_exists pkgshare/"licenses/github.com/dlclark/regexp2/v2@v2.2.1/ATTRIB"
     assert_match "SIL OPEN FONT LICENSE", (pkgshare/"licenses/github.com/alecthomas/chroma/v2@v2.27.0/COPYING").read
+    assert_path_exists pkgshare/"licenses/github.com/atotto/clipboard@v0.1.4/LICENSE"
+    assert_path_exists pkgshare/"licenses/github.com/sahilm/fuzzy@v0.1.3/LICENSE"
     assert_path_exists pkgshare/"theme.example.yaml"
     assert_path_exists pkgshare/"docs/configuration.md"
-    system formula_opt_bin("python@3.14")/"python3.14", pkgshare/"startup_pty.py", bin/"readmd"
+    python = formula_opt_bin("python@3.14")/"python3.14"
+    system python, pkgshare/"startup_pty.py", bin/"readmd"
+    system python, pkgshare/"file_picker_pty.py", bin/"readmd"
+    system python, pkgshare/"image_size_pty.py", bin/"readmd"
   end
 end
