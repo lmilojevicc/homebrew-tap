@@ -1,0 +1,45 @@
+name: Update Brewnicle
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 * * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: update-brewnicle
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+      - name: Test updater
+        run: python3 -m unittest discover -s tests -v
+      - name: Validate release and generate formula
+        run: python3 scripts/update_brewnicle.py
+      # Pushes using GITHUB_TOKEN do not trigger Tap CI, so validate here too.
+      - name: Validate generated formula
+        run: |
+          ruby -c Formula/brewnicle.rb
+          python3 -m unittest discover -s tests -v
+      - name: Commit only the Brewnicle formula
+        run: |
+          if git diff --quiet -- Formula/brewnicle.rb; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- Formula/brewnicle.rb
+          git commit -m 'chore: update brewnicle formula'
+          git push origin HEAD:main
