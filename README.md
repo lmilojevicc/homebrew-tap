@@ -1,6 +1,18 @@
 # homebrew-tap
 Homebrew tap for lmilojevicc's CLI tools (seshagy and more)
 
+## defbrow
+
+Searchable default-browser picker for macOS and Linux.
+
+```sh
+brew install lmilojevicc/tap/defbrow
+```
+
+Release binaries support Apple Silicon/ARM64 and Intel/AMD64. Requires macOS 12+
+or Linux with glibc 2.39+. On Linux, install `xdg-utils` with your distribution's
+package manager and run in your graphical desktop session.
+
 ## readmd
 
 Terminal Markdown reader with wide-table support, built from source.
