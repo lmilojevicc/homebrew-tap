@@ -1,8 +1,8 @@
 class Readmd < Formula
   desc "Terminal Markdown reader with wide-table support"
   homepage "https://github.com/lmilojevicc/readmd"
-  url "https://github.com/lmilojevicc/readmd/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "d48d26b3bb9b6f94b430ff89374d4e7b541fe4abae6717757f3974868159c1a8"
+  url "https://github.com/lmilojevicc/readmd/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "50a65805da70da646f1ea044c0af96b12aae24fef69cafd4e2f8b19e92a9ac0e"
   license "GPL-3.0-only"
 
   depends_on "go" => :build
