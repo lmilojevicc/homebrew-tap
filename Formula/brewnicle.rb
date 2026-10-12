@@ -2,27 +2,27 @@ class Brewnicle < Formula
   desc "Terminal browser for recently added Homebrew packages"
   homepage "https://github.com/lmilojevicc/brewnicle"
   license "MIT"
-  version "0.1.0"
+  version "0.2.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/lmilojevicc/brewnicle/releases/download/v0.1.0/brewnicle_v0.1.0_darwin_arm64.tar.gz"
-      sha256 "beea2350f7b5b63e3ca49615df22d2da141259533e8987e7d528b6212b6e926d"
+      url "https://github.com/lmilojevicc/brewnicle/releases/download/v0.2.0/brewnicle_v0.2.0_darwin_arm64.tar.gz"
+      sha256 "5247ebb13d5558c7ff6d96d828c962516bbbe99f05897ef1ec3c398e083e579e"
     end
     on_intel do
-      url "https://github.com/lmilojevicc/brewnicle/releases/download/v0.1.0/brewnicle_v0.1.0_darwin_amd64.tar.gz"
-      sha256 "87e0932b5abce99867fb8eec5a9537e4150539f2ba2683fe149b150966c7ab30"
+      url "https://github.com/lmilojevicc/brewnicle/releases/download/v0.2.0/brewnicle_v0.2.0_darwin_amd64.tar.gz"
+      sha256 "6d06f1d807e5b340fa2ef77bcabfc0b08fe792eb56aff83862951f3a3e99fd9a"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/lmilojevicc/brewnicle/releases/download/v0.1.0/brewnicle_v0.1.0_linux_arm64.tar.gz"
-      sha256 "d8fde04af0cc56e9153f31c00ef5bf87a3221f937c1b673dd3ff06b786299863"
+      url "https://github.com/lmilojevicc/brewnicle/releases/download/v0.2.0/brewnicle_v0.2.0_linux_arm64.tar.gz"
+      sha256 "388fe728a78b5a9788f94b686c30b1af65f23a1b0d5438fc0b4388a9fb827f75"
     end
     on_intel do
-      url "https://github.com/lmilojevicc/brewnicle/releases/download/v0.1.0/brewnicle_v0.1.0_linux_amd64.tar.gz"
-      sha256 "a9ac613ce7212e35c35940850135aca8520696dd513f1192622cdbb8e6ab3d02"
+      url "https://github.com/lmilojevicc/brewnicle/releases/download/v0.2.0/brewnicle_v0.2.0_linux_amd64.tar.gz"
+      sha256 "ac2d0fdaa43f7957ed5fe7539497e6c8eb5744d59dc497c2a3051e943b78685b"
     end
   end
 
